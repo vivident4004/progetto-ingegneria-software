@@ -6,15 +6,13 @@ import org.junit.jupiter.api.Test;
 import composite.Composite;
 import composite.Component;
 import java.util.List;
-import java.util.ArrayList;
 
 class CompositeTest {
     private Composite composite;
     private TestComponent component1;
     private TestComponent component2;
 
-    // Component di test per controllo determinisico
-    private class TestComponent implements Component {
+    private static class TestComponent implements Component {
         private final String nome;
         private final double misura;
         private boolean notificato = false;
@@ -92,14 +90,13 @@ class CompositeTest {
         composite.add(component1);
         composite.add(component2);
 
-        // Verifichiamo che all'inizio nessun componente sia stato notificato
+        // Verifico che all'inizio nessun componente sia stato notificato
         assertFalse(component1.isNotificato());
         assertFalse(component2.isNotificato());
 
-        // Notifichiamo
         composite.notificaMisura();
 
-        // Verifichiamo che tutti i componenti siano stati notificati
+        // Verifico che tutti i componenti siano stati notificati
         assertTrue(component1.isNotificato());
         assertTrue(component2.isNotificato());
     }
@@ -113,7 +110,7 @@ class CompositeTest {
         composite.add(component1);
         composite.add(subComposite);
 
-        // Verifichiamo che ottieniMisura aggreghi correttamente dai compositi annidati
+        // Verifico che ottieniMisura aggreghi correttamente dai compositi annidati
         List<Double> misure = composite.ottieniMisura();
         assertEquals(2, misure.size());
         assertTrue(misure.contains(10.0));

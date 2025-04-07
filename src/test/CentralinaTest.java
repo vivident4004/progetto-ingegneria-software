@@ -3,19 +3,17 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
 import observer.Centralina;
 import model.Misurazione;
 import java.util.Observable;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.nio.file.Path;
 
+@SuppressWarnings("deprecation")
 class CentralinaTest {
     private Centralina centralina;
     private TestObservable observable;
 
-    // Una classe Observable di test
     private static class TestObservable extends Observable {
         public void triggerNotify(Object arg) {
             setChanged();
@@ -37,16 +35,10 @@ class CentralinaTest {
 
     @Test
     void testUpdateConMisurazioneValida() {
-        // Creiamo una misurazione di test
         Misurazione misurazione = new Misurazione("test", "sensoreTest", 25.0, "unità");
-
-        // La centralina non ha misure inizialmente
-        centralina.mostraMisurazioni(); // Solo per verificare che non ci siano eccezioni
-
-        // Notifichiamo la centralina
+        centralina.mostraMisurazioni();
         observable.triggerNotify(misurazione);
 
-        // Verifichiamo che la misurazione sia ricevuta e gestita correttamente
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
@@ -87,7 +79,7 @@ class CentralinaTest {
         Misurazione misura2 = new Misurazione("test", "sensoreTest", 26.0, "unità");
         observable.triggerNotify(misura2);
 
-        // Verifichiamo che la seconda misurazione abbia sostituito la prima
+        // Verifico che la seconda misurazione abbia sostituito la prima
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));

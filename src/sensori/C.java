@@ -26,9 +26,8 @@ public class C {
         // Se è la prima lettura o è passato molto tempo (>10s), maggiore variazione
         double maxVariazione;
         if (ultimoAggiornamento == 0 || tempoPassato > 10000) {
-            maxVariazione = 10.0; // Variazione maggiore dopo tempo lungo
+            maxVariazione = 10.0;
         } else {
-            // Variazione piccola per letture frequenti
             maxVariazione = 1;
         }
 
@@ -43,7 +42,7 @@ public class C {
         return nuovaMisura;
     }
 
-    // Per scopi di testing
+    // Per test
     public double getUltimaMisura() {
         return ultimaMisura;
     }

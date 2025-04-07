@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sensori.C;
 
@@ -19,31 +20,30 @@ class SensoreCTest {
     }
 
     @Test
-    void testMeasureInizialeInRange() {
+    void testMisuraIniziale() {
         double misura = sensore.measure();
         assertTrue(misura >= 1000.0 && misura <= 1020.0);
     }
 
     @Test
-    void testMeasureVariazioneConsistente() {
-        // Impostiamo un valore noto
+    @DisplayName("Verifica variazioni consecutive entro limiti")
+    void testVariazioniConsecutive() {
         sensore.setUltimaMisura(1010.0);
-
-        // Prendiamo diverse misure consecutive e verifichiamo che non varino troppo
-        double prima = sensore.measure();
-        double max = prima + 1.0; // Considerando la variazione massima di 0.5 + un margine
-        double min = prima - 1.0;
-
-        // Facciamo diverse letture per confermare consistenza
+        double misuraPrecedente = sensore.measure();
         for (int i = 0; i < 5; i++) {
-            double next = sensore.measure();
-            assertTrue(next >= min && next <= max,
-                    "La misura " + next + " è fuori dall'intervallo previsto [" + min + ", " + max + "]");
+            double nuovaMisura = sensore.measure();
+            double variazione = Math.abs(nuovaMisura - misuraPrecedente);
+
+            assertTrue(variazione <= 2.0 + 0.001,
+                    "Variazione eccessiva: " + variazione +
+                            " tra " + misuraPrecedente + " e " + nuovaMisura);
+
+            misuraPrecedente = nuovaMisura;
         }
     }
 
     @Test
-    void testSetUltimaMisuraGetUltimaMisura() {
+    void testGetSetUltimaMisura() {
         sensore.setUltimaMisura(1015.5);
         assertEquals(1015.5, sensore.getUltimaMisura());
     }

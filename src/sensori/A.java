@@ -26,12 +26,11 @@ public class A {
         // Se è la prima lettura o è passato molto tempo (>10s), maggiore variazione
         double maxVariazione;
         if (ultimoAggiornamento == 0 || tempoPassato > 10000) {
-            maxVariazione = 2.0; // Variazione maggiore dopo tempo lungo
+            maxVariazione = 2.0;
         } else {
             maxVariazione = 0.2;
         }
 
-        // Genera una variazione casuale limitata
         double variazione = random.nextDouble() * maxVariazione * 2 - maxVariazione;
         double nuovaMisura = ultimaMisura + variazione;
 
@@ -42,7 +41,7 @@ public class A {
         return nuovaMisura;
     }
 
-    // Per scopi di testing
+    // Per test
     public double getUltimaMisura() {
         return ultimaMisura;
     }

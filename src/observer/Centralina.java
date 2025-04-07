@@ -38,9 +38,6 @@ public class Centralina implements Observer {
         }
     }
 
-    /**
-     * Mostra tutte le misurazioni attuali
-     */
     public void mostraMisurazioni() {
         System.out.println("\n=== STATO ATTUALE CENTRALINA: " + nome + " ===");
         if (ultimeMisure.isEmpty()) {
