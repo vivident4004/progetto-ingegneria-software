@@ -35,10 +35,6 @@ public class A {
         double variazione = random.nextDouble() * maxVariazione * 2 - maxVariazione;
         double nuovaMisura = ultimaMisura + variazione;
 
-        // Assicurarsi che rimanga nell'intervallo desiderato (20-30°C)
-//        if (nuovaMisura < 20.0) nuovaMisura = 20.0;
-//        if (nuovaMisura > 30.0) nuovaMisura = 30.0;
-
         // Memorizza lo stato per la prossima lettura
         ultimaMisura = nuovaMisura;
         ultimoAggiornamento = tempoCorrente;

@@ -6,14 +6,12 @@ import sensori.C;
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 import java.text.DecimalFormat;
 
 @SuppressWarnings("deprecation")
 public class AdapterC extends Observable implements Component {
     private final C sensoreC;
     private final String tipologia = "pressione";
-    private final String unitaMisura = "hPa";
     private Double ultimaMisuraValore = null;
     private static final DecimalFormat df = new DecimalFormat("0.0");
 
@@ -39,6 +37,7 @@ public class AdapterC extends Observable implements Component {
             variazioneInfo = " (variazione: " + df.format(variazione) + "%)";
         }
 
+        String unitaMisura = "hPa";
         Misurazione misurazione = new Misurazione(
                 tipologia,
                 sensoreC.getNome(),

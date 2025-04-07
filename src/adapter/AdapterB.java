@@ -6,14 +6,12 @@ import sensori.B;
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
-import java.util.Observer;
 import java.text.DecimalFormat;
 
 @SuppressWarnings("deprecation")
 public class AdapterB extends Observable implements Component {
     private final B sensoreB;
     private final String tipologia = "umidità";
-    private final String unitaMisura = "%";
     private Double ultimaMisuraValore = null;
     private static final DecimalFormat df = new DecimalFormat("0.0");
 
@@ -39,6 +37,7 @@ public class AdapterB extends Observable implements Component {
             variazioneInfo = " (variazione: " + df.format(variazione) + "%)";
         }
 
+        String unitaMisura = "%";
         Misurazione misurazione = new Misurazione(
                 tipologia,
                 sensoreB.getNome(),

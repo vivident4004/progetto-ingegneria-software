@@ -17,9 +17,7 @@ public class Centralina implements Observer {
 
     @Override
     public void update(Observable obs, Object arg) {
-        if (arg instanceof Misurazione) {
-            Misurazione misurazione = (Misurazione) arg;
-
+        if (arg instanceof Misurazione misurazione) {
             // Aggiorna o aggiungi la misurazione alla lista
             boolean aggiornata = false;
             for (int i = 0; i < ultimeMisure.size(); i++) {
@@ -52,7 +50,6 @@ public class Centralina implements Observer {
                 System.out.println("- " + m);
             }
         }
-        //System.out.println("==========================================\n");
     }
 
     public String getNome() {

@@ -36,10 +36,6 @@ public class B {
         double variazione = random.nextDouble() * maxVariazione * 2 - maxVariazione;
         double nuovaMisura = ultimaMisura + variazione;
 
-        // Assicurarsi che rimanga nell'intervallo desiderato (40-60%)
-//        if (nuovaMisura < 40.0) nuovaMisura = 40.0;
-//        if (nuovaMisura > 60.0) nuovaMisura = 60.0;
-
         // Memorizza lo stato per la prossima lettura
         ultimaMisura = nuovaMisura;
         ultimoAggiornamento = tempoCorrente;
