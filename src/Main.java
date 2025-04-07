@@ -45,9 +45,9 @@ public class Main {
         boolean continua = true;
         while (continua) {
             System.out.println("\n=== MENÚ PRINCIPALE ===");
-            System.out.println("1. Mostra lo stato della centralina");
-            System.out.println("2. Visualizza la misurazione di un sensore specifico");
-            System.out.println("3. Visualizza tutte le misurazioni");
+            System.out.println("1. Mostra le ultime misure ricevute dalla centralina");
+            System.out.println("2. Forza l'aggiornamento e la notifica di un sensore specifico");
+            System.out.println("3. Forza l'aggiornamento e la notifica di tutti i sensori"); // observer push
             System.out.println("0. Esci");
             System.out.print("\nScegli un'opzione: ");
 

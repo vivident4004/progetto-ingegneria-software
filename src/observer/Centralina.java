@@ -39,7 +39,7 @@ public class Centralina implements Observer {
     }
 
     public void mostraMisurazioni() {
-        System.out.println("\n=== STATO ATTUALE CENTRALINA: " + nome + " ===");
+        System.out.println("\n=== STATO ATTUALE CENTRALINA (" + nome + ") ===");
         if (ultimeMisure.isEmpty()) {
             System.out.println("Nessuna misurazione disponibile");
         } else {
