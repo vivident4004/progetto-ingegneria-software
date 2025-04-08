@@ -1,6 +1,5 @@
-package adapter;
+package component;
 
-import composite.Component;
 import model.Misurazione;
 import sensori.B;
 import java.util.Collections;

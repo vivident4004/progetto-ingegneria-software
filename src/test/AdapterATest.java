@@ -1,13 +1,13 @@
-package test; // Assicurati che il package sia corretto
+package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import adapter.AdapterA;
+import component.AdapterA;
 import sensori.A;
-import composite.Component;
+import component.Component;
 import model.Misurazione;
 
 import java.util.List;

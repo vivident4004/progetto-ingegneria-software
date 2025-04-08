@@ -3,8 +3,8 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import composite.Composite;
-import composite.Component;
+import component.Composite;
+import component.Component;
 import java.util.List;
 
 class CompositeTest {

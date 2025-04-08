@@ -1,35 +1,33 @@
-package adapter;
+package component;
 
-import composite.Component;
 import model.Misurazione;
-import sensori.A;
+import sensori.C;
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 import java.text.DecimalFormat;
 
 @SuppressWarnings("deprecation")
-public class AdapterA extends Observable implements Component {
-    private final A sensoreA;
-    private final String tipologia = "temperatura";
+public class AdapterC extends Observable implements Component {
+    private final C sensoreC;
+    private final String tipologia = "pressione";
     private Double ultimaMisuraValore = null;
     private static final DecimalFormat df = new DecimalFormat("0.0");
 
-    public AdapterA(A sensoreA) {
-        this.sensoreA = sensoreA;
+    public AdapterC(C sensoreC) {
+        this.sensoreC = sensoreC;
     }
 
     @Override
     public List<Double> ottieniMisura() {
-        double misura = sensoreA.getMeasure();
+        double misura = sensoreC.measure();
         ultimaMisuraValore = misura;
-        // Le foglie ritornano una lista con un solo elemento
         return Collections.singletonList(misura);
     }
 
     @Override
     public void notificaMisura() {
-        double misuraCorrente = sensoreA.getMeasure();
+        double misuraCorrente = sensoreC.measure();
 
         // Calcola variazione percentuale se disponibile
         String variazioneInfo = "";
@@ -38,10 +36,10 @@ public class AdapterA extends Observable implements Component {
             variazioneInfo = " (variazione: " + df.format(variazione) + "%)";
         }
 
-        String unitaMisura = "°C";
+        String unitaMisura = "hPa";
         Misurazione misurazione = new Misurazione(
                 tipologia,
-                sensoreA.getNome(),
+                sensoreC.getNome(),
                 misuraCorrente,
                 unitaMisura,
                 variazioneInfo
@@ -56,12 +54,12 @@ public class AdapterA extends Observable implements Component {
 
     @Override
     public String toString() {
-        return sensoreA.getNome() + " (" + tipologia + ")";
+        return sensoreC.getNome() + " (" + tipologia + ")";
     }
 
     // Per test
-    public A getSensoreA() {
-        return sensoreA;
+    public C getSensoreC() {
+        return sensoreC;
     }
 
     public Double getUltimaMisuraValore() {

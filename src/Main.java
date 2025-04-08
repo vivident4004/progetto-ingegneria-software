@@ -1,6 +1,4 @@
-import adapter.*;
-import composite.Composite;
-import composite.Component;
+import component.*;
 import observer.Centralina;
 import sensori.*;
 import java.util.ArrayList;

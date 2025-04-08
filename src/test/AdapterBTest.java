@@ -5,9 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import adapter.AdapterB;
+import component.AdapterB;
 import sensori.B;
-import composite.Component;
+import component.Component;
 import model.Misurazione;
 
 import java.util.List;
