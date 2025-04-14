@@ -5,10 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import component.AdapterB;
+import domain.AdapterB;
 import sensori.B;
-import component.Component;
-import model.Misurazione;
+import domain.Component;
+import data.Misurazione;
 
 import java.util.List;
 import java.util.Observer;

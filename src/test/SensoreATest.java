@@ -28,7 +28,6 @@ class SensoreATest {
     @Test
     @DisplayName("Verifica variazioni consecutive entro limiti")
     void testVariazioniConsecutive() {
-        sensore.setUltimaMisura(25.0);
         double misuraPrecedente = sensore.getMeasure();
         for (int i = 0; i < 5; i++) {
             double nuovaMisura = sensore.getMeasure();
@@ -42,12 +41,5 @@ class SensoreATest {
 
             misuraPrecedente = nuovaMisura;
         }
-    }
-
-
-    @Test
-    void testSetUltimaMisuraGetUltimaMisura() {
-        sensore.setUltimaMisura(22.5);
-        assertEquals(22.5, sensore.getUltimaMisura());
     }
 }

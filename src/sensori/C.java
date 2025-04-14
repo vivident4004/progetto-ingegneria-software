@@ -41,13 +41,4 @@ public class C {
 
         return nuovaMisura;
     }
-
-    // Per test
-    public double getUltimaMisura() {
-        return ultimaMisura;
-    }
-
-    public void setUltimaMisura(double valore) {
-        this.ultimaMisura = valore;
-    }
 }

@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import observer.Centralina;
-import model.Misurazione;
+import data.Misurazione;
 import java.util.Observable;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -35,7 +35,7 @@ class CentralinaTest {
 
     @Test
     void testUpdateConMisurazioneValida() {
-        Misurazione misurazione = new Misurazione("test", "sensoreTest", 25.0, "unità");
+        Misurazione misurazione = new Misurazione("test", "sensoreTest", 25.0, "unità", "");
         centralina.mostraMisurazioni();
         observable.triggerNotify(misurazione);
 
@@ -72,11 +72,11 @@ class CentralinaTest {
     @Test
     void testAggiornamentoMisuraEsistente() {
         // Prima misurazione
-        Misurazione misura1 = new Misurazione("test", "sensoreTest", 25.0, "unità");
+        Misurazione misura1 = new Misurazione("test", "sensoreTest", 25.0, "unità", "");
         observable.triggerNotify(misura1);
 
         // Seconda misurazione dallo stesso sensore
-        Misurazione misura2 = new Misurazione("test", "sensoreTest", 26.0, "unità");
+        Misurazione misura2 = new Misurazione("test", "sensoreTest", 26.0, "unità", "");
         observable.triggerNotify(misura2);
 
         // Verifico che la seconda misurazione abbia sostituito la prima
@@ -95,8 +95,8 @@ class CentralinaTest {
 
     @Test
     void testMultipleMisurazioniDaSensoriDiversi() {
-        Misurazione misura1 = new Misurazione("temperatura", "sensore1", 25.0, "°C");
-        Misurazione misura2 = new Misurazione("umidità", "sensore2", 50.0, "%");
+        Misurazione misura1 = new Misurazione("temperatura", "sensore1", 25.0, "°C", "");
+        Misurazione misura2 = new Misurazione("umidità", "sensore2", 50.0, "%", "");
 
         observable.triggerNotify(misura1);
         observable.triggerNotify(misura2);

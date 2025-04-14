@@ -1,6 +1,6 @@
 package observer;
 
-import model.Misurazione;
+import data.Misurazione;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;

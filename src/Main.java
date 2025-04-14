@@ -1,4 +1,4 @@
-import component.*;
+import domain.*;
 import observer.Centralina;
 import sensori.*;
 import java.util.ArrayList;

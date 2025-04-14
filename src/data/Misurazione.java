@@ -1,4 +1,4 @@
-package model;
+package data;
 
 import java.text.DecimalFormat;
 
@@ -10,20 +10,16 @@ public class Misurazione {
     private final String nomeSensore;
     private final double valore;
     private final String unitaMisura;
-    private final String infoVariazione;
+    private final String variazione;
     private static final DecimalFormat formatter = new DecimalFormat("0.0");
 
-    public Misurazione(String tipologia, String nomeSensore, double valore, String unitaMisura) {
-        this(tipologia, nomeSensore, valore, unitaMisura, "");
-    }
-
     public Misurazione(String tipologia, String nomeSensore, double valore,
-                       String unitaMisura, String infoVariazione) {
+                       String unitaMisura, String variazione) {
         this.tipologia = tipologia;
         this.nomeSensore = nomeSensore;
         this.valore = valore;
         this.unitaMisura = unitaMisura;
-        this.infoVariazione = infoVariazione;
+        this.variazione = variazione;
     }
 
     public String getTipologia() {
@@ -46,13 +42,9 @@ public class Misurazione {
         return unitaMisura;
     }
 
-    public String getInfoVariazione() {
-        return infoVariazione;
-    }
-
     @Override
     public String toString() {
         return nomeSensore + " (" + tipologia + "): " + getValoreFormattato() +
-                " " + unitaMisura + infoVariazione;
+                " " + unitaMisura + variazione;
     }
 }
