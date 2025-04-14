@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
 import domain.AdapterA;
-import sensori.A;
+import sensors.A;
 import domain.Component;
 import data.Misurazione;
 

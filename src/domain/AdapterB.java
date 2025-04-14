@@ -1,7 +1,7 @@
 package domain;
 
 import data.Misurazione;
-import sensori.B;
+import sensors.B;
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;

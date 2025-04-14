@@ -1,6 +1,6 @@
 import domain.*;
 import observer.Centralina;
-import sensori.*;
+import sensors.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;

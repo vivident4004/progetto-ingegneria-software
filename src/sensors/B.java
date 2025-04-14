@@ -1,14 +1,14 @@
-package sensori;
+package sensors;
 
 import java.util.Random;
 
-public class C {
+public class B {
     private final String nome;
     private final Random random = new Random();
-    private double ultimaMisura = 1010.0; // Valore iniziale per pressione
+    private double ultimaMisura = 50.0; // Valore iniziale per umidità
     private long ultimoAggiornamento = 0;
 
-    public C(String nome) {
+    public B(String nome) {
         this.nome = nome;
     }
 
@@ -17,21 +17,20 @@ public class C {
     }
 
     /**
-     * Simula la lettura della pressione con variazioni realistiche
+     * Simula la lettura dell'umidità con variazioni realistiche
      */
-    public double measure() {
+    public double misura() {
         long tempoCorrente = System.currentTimeMillis();
         long tempoPassato = tempoCorrente - ultimoAggiornamento;
 
         // Se è la prima lettura o è passato molto tempo (>10s), maggiore variazione
         double maxVariazione;
         if (ultimoAggiornamento == 0 || tempoPassato > 10000) {
-            maxVariazione = 10.0;
+            maxVariazione = 5.0;
         } else {
-            maxVariazione = 1;
+            maxVariazione = 0.5;
         }
 
-        // Genera una variazione casuale limitata
         double variazione = random.nextDouble() * maxVariazione * 2 - maxVariazione;
         double nuovaMisura = ultimaMisura + variazione;
 
