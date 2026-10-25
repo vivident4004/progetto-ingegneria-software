@@ -35,8 +35,6 @@ src/
 └── test/            # JUnit tests
 ```
 
-A full report (in Italian) is in `relazione_progetto.pdf`.
-
 ---
 
 *No AI was used to write the code of this project.*
